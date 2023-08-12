@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display:inline-block;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 0;
+            color: #777777;
+        }
+
+    </style>
+</head>
+<body>
+        {% for vehicle in vehicles %}
+        <div class="card">
+            <p><strong>Vehicle Number:</strong> {{vehicle.Vehicle_no}}</p>
+            <p><strong>Vehicle Type:</strong> {{vehicle.Vehicle_type}}</p>
+            <p><strong>Vehicle Model:</strong> {{vehicle.Vehicle_model}}</p>
+            <p><strong>Vehicle Description:</strong> {{vehicle.Vehicle_des}}</p>
+        </div>
+        {% endfor %}
+
+        <!-- <a href="/info/">
+            Vehicle info
+        </a>
+        
+        <a href="/log_in/">
+            Login
+        </a> -->
+</body>
+</html>

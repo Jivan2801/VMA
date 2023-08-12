@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Vehicle</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .login-container {
+        max-width: 300px;
+        margin: 100px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .login-container h2 {
+        text-align: center;
+      }
+
+      .login-container input[type="text"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-right: 10px;
+      }
+
+      .login-container input[type="submit"] {
+        width: 100%;
+        background: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .login-container input[type="submit"]:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container mt-5">
+      <h2>Add Vehicle</h2>
+      <form
+        class="col-6 mx-auto card p-3"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="Vehicle_no" class="form-label">Vehicle Number</label>
+          <input name="Vehicle_no" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="Vehicle_type" class="form-label">Vehicle Type</label>
+          <input name="Vehicle_type" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="Vehicle_model" class="form-label">Vehicle Model</label>
+          <input name="Vehicle_model" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="Vehicle_des" class="form-label"
+            >Vehicle Description</label
+          >
+          <textarea name="Vehicle_des" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-sucess">Submit</button>
+      </form>
+    </div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Vehicle Number</th>
+            <th scope="col">Vehicle Type</th>
+            <th scope="col">Vehicle Model</th>
+            <th scope="col">Vehicle Dess</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for Vehicle in Vehicles %}
+          <tr>
+            <th scope="col">{{forloop.counter}}</th>
+            <td>{{Vehicle.Vehicle_no}}</td>
+            <td>{{Vehicle.Vehicle_type}}</td>
+            <td>{{Vehicle.Vehicle_model}}</td>
+            <td>{{Vehicle.Vehicle_des}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
