@@ -91,7 +91,7 @@
       <div class="mb-3">
         <label for="Vehicle_no" class="form-label">Vehicle Number</label>
         <input name="Vehicle_no" type="text" class="form-control" />
-      </div>
+      </div> 
       <div class="mb-3">
         <label for="Vehicle_type" class="form-label">Vehicle Type</label>
         <input name="Vehicle_type" type="text" class="form-control" />
@@ -114,6 +114,8 @@
       <p><strong>Vehicle Type:</strong> {{vehicle.Vehicle_type}}</p>
       <p><strong>Vehicle Model:</strong> {{vehicle.Vehicle_model}}</p>
       <p><strong>Vehicle Description:</strong> {{vehicle.Vehicle_des}}</p>
+      <a href="/delete-vehicle/{{vehicle.id}}" class="btn btn-danger">Delete</a>
+
     </div>
     {% endfor %}
   </div>

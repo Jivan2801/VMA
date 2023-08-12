@@ -21,6 +21,7 @@ from home.views import *
 urlpatterns = [
     path('' , home , name='home'),
     path('add-vehicle/' , add_vehicle , name='add_vehicle'),
+    path('delete-vehicle/<id>/', delete_vehicle, name="delete_vehicle"),
     path('log_in/' , log_in , name='log_in'),
     path('info/' , info , name='info'),
     path('Vechile-view/' , Vechileview , name='Vechileview'),

@@ -41,7 +41,7 @@ def add_vehicle(request):
             Vehicle_model=Vehicle_model,
             Vehicle_des=Vehicle_des,
         )
-        
+
         return redirect('/add-vehicle')
 
     queryset = Vehicle.objects.all()
@@ -56,3 +56,10 @@ def log_in(request):
 
 def info(request):
     return render(request, "vehicle.html")
+
+
+def delete_vehicle(request, id):
+    queryset = Vehicle.objects.get(id=id)
+   
+    queryset.delete()
+    return redirect('/add-vehicle/')
