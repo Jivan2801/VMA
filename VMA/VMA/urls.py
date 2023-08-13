@@ -22,8 +22,11 @@ urlpatterns = [
     path('' , home , name='home'),
     path('add-vehicle/' , add_vehicle , name='add_vehicle'),
     path('delete-vehicle/<id>/', delete_vehicle, name="delete_vehicle"),
+    path('update-vehicle/<id>/', update_vehicle, name="update_vehicle"),
     path('log_in/' , log_in , name='log_in'),
-    path('info/' , info , name='info'),
+    # path('Vehicle-view/',Vechileview, name= Vechileview),
+    path('register/' , register , name='register'),
+    path('log_out/' , log_out , name='log_out'),
     path('Vechile-view/' , Vechileview , name='Vechileview'),
     path('admin/', admin.site.urls),
 ]

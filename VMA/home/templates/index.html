@@ -50,23 +50,36 @@
     </style>
 </head>
 <body>
+
+    
     <div class="login-container">
         <h2>Login</h2>
-        <form action="process_login.php" method="post">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if messages %}
+
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+            </div>
+{% endif %}
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
+            <p>Dont have account <a href="/register/">Register</a> </p>
             <input type="submit" value="Login">
         </form>
     </div>
 
-    <a href="/log_in/">
+    <!-- <a href="/log_in/">
         Login
     </a>
 
     <a href="/info/">
         Vehicle if
-    </a>
+    </a> -->
 </body>
 </html>

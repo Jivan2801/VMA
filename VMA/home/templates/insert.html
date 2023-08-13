@@ -80,29 +80,107 @@
     .login-container input[type="submit"]:hover {
       background: #0056b3;
     }
+
+    /* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Add some spacing and styles to the navigation bar */
+.navbar {
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Style the logout button */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the logout button */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Optional: Style the form if needed */
+.d-flex {
+    align-items: center;
+}
+
+/* Optional: Add padding to the container */
+.container-fluid {
+    padding: 0 15px;
+}
+
+
+
   </style>
 </head>
 
 <body>
+  <nav class="navbar p-4 shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand">Navbar</a>
+            <form class="d-flex" role="search">
+                <a href="/log_out/" class="btn btn-success" type="submit">Logout</a>
+            </form>
+        </div>
+    </nav>
+
   <div class="login-container mt-5">
     <h2>Add Vehicle</h2>
     <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="mb-3">
         <label for="Vehicle_no" class="form-label">Vehicle Number</label>
-        <input name="Vehicle_no" type="text" class="form-control" />
+        <input name="Vehicle_no" type="text" class="form-control" required />
       </div> 
       <div class="mb-3">
         <label for="Vehicle_type" class="form-label">Vehicle Type</label>
-        <input name="Vehicle_type" type="text" class="form-control" />
+        <input name="Vehicle_type" type="text" class="form-control" required />
       </div>
       <div class="mb-3">
         <label for="Vehicle_model" class="form-label">Vehicle Model</label>
-        <input name="Vehicle_model" type="text" class="form-control" />
+        <input name="Vehicle_model" type="text" class="form-control" required/>
       </div>
       <div class="mb-3">
         <label for="Vehicle_des" class="form-label">Vehicle Description</label>
-        <textarea name="Vehicle_des" class="form-control"></textarea>
+        <textarea name="Vehicle_des" class="form-control" required></textarea>
       </div>
       <button type="submit" class="btn btn-sucess">Submit</button>
     </form>
@@ -115,6 +193,7 @@
       <p><strong>Vehicle Model:</strong> {{vehicle.Vehicle_model}}</p>
       <p><strong>Vehicle Description:</strong> {{vehicle.Vehicle_des}}</p>
       <a href="/delete-vehicle/{{vehicle.id}}" class="btn btn-danger">Delete</a>
+      <a href="/update-vehicle/{{vehicle.id}}" class="btn btn-success">Update</a>
 
     </div>
     {% endfor %}
