@@ -19,11 +19,11 @@ from django.urls import path
 from home.views import *
 
 urlpatterns = [
-    path('' , home , name='home'),
+    path('' , log_in , name='log_in'),
     path('add-vehicle/' , add_vehicle , name='add_vehicle'),
     path('delete-vehicle/<id>/', delete_vehicle, name="delete_vehicle"),
     path('update-vehicle/<id>/', update_vehicle, name="update_vehicle"),
-    path('log_in/' , log_in , name='log_in'),
+    # path('log_in/' , log_in , name='log_in'),
     # path('Vehicle-view/',Vechileview, name= Vechileview),
     path('register/' , register , name='register'),
     path('log_out/' , log_out , name='log_out'),

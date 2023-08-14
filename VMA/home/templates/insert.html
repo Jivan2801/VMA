@@ -170,9 +170,20 @@
         <label for="Vehicle_no" class="form-label">Vehicle Number</label>
         <input name="Vehicle_no" type="text" class="form-control" required />
       </div> 
-      <div class="mb-3">
-        <label for="Vehicle_type" class="form-label">Vehicle Type</label>
-        <input name="Vehicle_type" type="text" class="form-control" required />
+      <div class="mb-3" >
+      <label>Vehicle Type:</label>
+      <br>
+            <input type="radio" id="super_admin" name="Vehicle_type" value="Vehicle_type">
+            <label for="Vehicle_type">Two Wheeler</label>
+            <br>
+            <input type="radio" id="admin" name="Vehicle_type" value="Vehicle_type">
+            <label for="Vehicle_type">Three Wheelers</label>
+            <br>
+            <input type="radio" id="user" name="Vehicle_type" value="Vehicle_type" checked>
+            <label for="Vehicle_type">Four Wheelers</label> 
+            
+        <!-- <label for="Vehicle_type" class="form-label">Vehicle Type</label>
+        <input name="Vehicle_type" type="text" class="form-control" required /> -->
       </div>
       <div class="mb-3">
         <label for="Vehicle_model" class="form-label">Vehicle Model</label>
